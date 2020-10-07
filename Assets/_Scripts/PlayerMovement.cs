@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
-    CharacterController p;
-    float jForce = 2.0f;
-    float speed = 10.0f;
+    public CharacterController p;
+    public SphereCollider unfortunate;
+    float jForce = 8.0f;
+    float speed = 5.0f;
     float gravity = -9.4f;
     private Vector3 pVel;
     private bool _pGrounded;
@@ -16,15 +17,17 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        p = player.GetComponent<CharacterController>();
+       //p = player.GetComponent<CharacterController>();
     }
+
 
 
     // Update is called once per frame
     void Update()
     {
-        _pGrounded = p.isGrounded; // SETS GROUND TO TRUE OR FALSE
-        if(pVel.y < 0.0f && _pGrounded)
+        _pGrounded = p.isGrounded;
+        //_pGrounded = ; // SETS GROUND TO TRUE OR FALSE
+        if (pVel.y <= 0.0f && p.isGrounded)
         {
             pVel.y = 0.0f;
         }
@@ -32,21 +35,20 @@ public class PlayerMovement : MonoBehaviour
         {
             move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         }
-        p.Move(move * speed * Time.deltaTime);
+
+        if (Input.GetKeyDown("space") && _pGrounded)
+        {
+            pVel.y = jForce;
+        }
 
         if (move != Vector3.zero)
         {
             player.transform.forward = move;
         }
 
-        if (Input.GetKeyDown("space"))
-        {
-            _pGrounded = p.isGrounded; // SETS GROUND TO TRUE OR FALSE(same command as before, shouldnt have to put this here.)
-            if (_pGrounded)
-            pVel.y += Mathf.Sqrt(jForce * -3.0f * gravity);
-        }
-        
         pVel.y += gravity * Time.deltaTime;
-        p.Move(pVel * Time.deltaTime);
+        p.Move((move * speed * Time.deltaTime) + (pVel * Time.deltaTime));
+        
     }
+
 }
