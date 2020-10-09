@@ -2,53 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//smoothdampangle
+
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject player;
-    public CharacterController p;
-    public SphereCollider unfortunate;
+    private CharacterController p;
     float jForce = 8.0f;
     float speed = 5.0f;
     float gravity = -9.4f;
     private Vector3 pVel;
     private bool _pGrounded;
     Vector3 move;
+    bool death = false;
+
+    [SerializeField]
+    public GameObject player;
+    [SerializeField]
+    private Transform spawnSpot;
 
     // Start is called before the first frame update
     void Start()
     {
-       //p = player.GetComponent<CharacterController>();
+       p = player.GetComponent<CharacterController>();
     }
-
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        death = true;
+        p.enabled = false;
+        if (collision.gameObject.tag == "Respawn")
+        {
+            player.transform.position = spawnSpot.transform.position;
+            Debug.Log(player.transform.position);
+        }
+        p.enabled = true;
+        death = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        _pGrounded = p.isGrounded;
-        //_pGrounded = ; // SETS GROUND TO TRUE OR FALSE
-        if (pVel.y <= 0.0f && p.isGrounded)
+        if (!death)
         {
-            pVel.y = 0.0f;
-        }
-        if (_pGrounded) // CHECKS IF IT IS TRUE OR NOT(DOES NOT EFFECT GROUNDED) 
-        {
-            move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        }
+            _pGrounded = p.isGrounded;
+            //_pGrounded = ; // SETS GROUND TO TRUE OR FALSE
+            if (pVel.y <= 0.0f && p.isGrounded)
+            {
+                pVel.y = 0.0f;
+            }
+            if (_pGrounded) // CHECKS IF IT IS TRUE OR NOT(DOES NOT EFFECT GROUNDED) 
+            {
+                move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            }
 
-        if (Input.GetKeyDown("space") && _pGrounded)
-        {
-            pVel.y = jForce;
-        }
+            if (Input.GetKeyDown("space") && _pGrounded)
+            {
+                pVel.y = jForce;
+            }
 
-        if (move != Vector3.zero)
-        {
-            player.transform.forward = move;
-        }
+            if (move != Vector3.zero)
+            {
+                player.transform.forward = move; // Directs facing forward.
+            }
 
-        pVel.y += gravity * Time.deltaTime;
-        p.Move((move * speed * Time.deltaTime) + (pVel * Time.deltaTime));
-        
+            pVel.y += gravity * Time.deltaTime;
+            p.Move((move * speed * Time.deltaTime) + (pVel * Time.deltaTime));
+        }
     }
 
 }
