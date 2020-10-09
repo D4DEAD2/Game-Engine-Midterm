@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovingWall : MonoBehaviour
 {
     public float dir = 1.0f;
-    public float objSpeed = 2.0f;
+    public float objSpeed = 1.0f;
     public bool updown = false;
     public GameObject player;
 

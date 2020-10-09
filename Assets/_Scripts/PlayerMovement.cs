@@ -15,29 +15,33 @@ public class PlayerMovement : MonoBehaviour
     Vector3 move;
     bool death = false;
 
-    [SerializeField]
+    //[SerializeField]
     public GameObject player;
-    [SerializeField]
-    private Transform spawnSpot;
+    public Vector3 respawnPnt;
 
     // Start is called before the first frame update
     void Start()
     {
        p = player.GetComponent<CharacterController>();
+       respawnPnt = new Vector3(18.5f, 5.0f, -20.0f);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        death = true;
-        p.enabled = false;
         if (collision.gameObject.tag == "Respawn")
         {
-            player.transform.position = spawnSpot.transform.position;
+            death = true;
+            p.enabled = false;
+            player.transform.position = respawnPnt;
             Debug.Log(player.transform.position);
+            p.enabled = true;
+            death = false;
         }
-        p.enabled = true;
-        death = false;
-    }
 
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            respawnPnt = collision.gameObject.transform.position;
+        }
+     }
     // Update is called once per frame
     void Update()
     {
@@ -61,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (move != Vector3.zero)
             {
-                player.transform.forward = move; // Directs facing forward.
+                //player.transform.forward = move; // Directs facing forward.
             }
 
             pVel.y += gravity * Time.deltaTime;
