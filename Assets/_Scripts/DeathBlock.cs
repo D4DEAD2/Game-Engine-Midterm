@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DeathBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerMovement player;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "Player")
+        {
+            player.Respawn_Player();
+        }
     }
 }

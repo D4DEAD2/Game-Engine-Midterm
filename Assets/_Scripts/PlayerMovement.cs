@@ -27,12 +27,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Player Collision");
         if (collision.gameObject.tag == "Respawn")
         {
+            Debug.Log("Respawn!");
             death = true;
             p.enabled = false;
             player.transform.position = respawnPnt;
-            Debug.Log(player.transform.position);
             p.enabled = true;
             death = false;
         }
@@ -42,6 +43,18 @@ public class PlayerMovement : MonoBehaviour
             respawnPnt = collision.gameObject.transform.position;
         }
      }
+
+    
+    public void Respawn_Player()
+    {
+        Debug.Log("Respawn!");
+        death = true;
+        p.enabled = false;
+        player.transform.position = respawnPnt;
+        p.enabled = true;
+        death = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
