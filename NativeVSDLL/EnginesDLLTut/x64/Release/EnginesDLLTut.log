@@ -1,0 +1,29 @@
+﻿  CheckpointTimeLogger.cpp
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251: 'CheckpointTimeLogger::m_RTBC': class 'std::vector<float,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'CheckpointTimeLogger'
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:         with
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:         [
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:             _Ty=float
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:         ]
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message : see declaration of 'std::vector<float,std::allocator<_Ty>>'
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :         with
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :         [
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :             _Ty=float
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :         ]
+  Wrapper.cpp
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.cpp(28,22): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251: 'CheckpointTimeLogger::m_RTBC': class 'std::vector<float,std::allocator<_Ty>>' needs to have dll-interface to be used by clients of class 'CheckpointTimeLogger'
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:         with
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:         [
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:             _Ty=float
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20,27): warning C4251:         ]
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message : see declaration of 'std::vector<float,std::allocator<_Ty>>'
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :         with
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :         [
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :             _Ty=float
+D:\School\Visual Studio\EnginesDLLTut\EnginesDLLTut\CheckpointTimeLogger.h(20): message :         ]
+     Creating library D:\School\Visual Studio\EnginesDLLTut\x64\Release\EnginesDLLTut.lib and object D:\School\Visual Studio\EnginesDLLTut\x64\Release\EnginesDLLTut.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 111 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  EnginesDLLTut.vcxproj -> D:\School\Visual Studio\EnginesDLLTut\x64\Release\EnginesDLLTut.dll

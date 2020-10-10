@@ -22,12 +22,12 @@ public class GrabTag : MonoBehaviour
             pManager = GameObject.FindWithTag("PManager");
             plugMan = pManager.GetComponent<ManagerPlugin>();
 
-            cPnt1.text = "Checkpoint 1: " + plugMan.LoadTimer(0);
-            cPnt2.text = "Checkpoint 2: " + plugMan.LoadTimer(1);
-            cPnt3.text = "Checkpoint 3: " + plugMan.LoadTimer(2);
-            cPnt4.text = "Checkpoint 4: " + plugMan.LoadTimer(3);
-            cPnt5.text = "Checkpoint 5: " + plugMan.LoadTimer(4);
-            total.text = "Total: " + plugMan.LoadTotalTime();
+            cPnt1.text = "Checkpoint 1: " + plugMan.LoadTimer(0).ToString();
+            cPnt2.text = "Checkpoint 2: " + plugMan.LoadTimer(1).ToString();
+            cPnt3.text = "Checkpoint 3: " + plugMan.LoadTimer(2).ToString();
+            cPnt4.text = "Checkpoint 4: " + plugMan.LoadTimer(3).ToString();
+            cPnt5.text = "Checkpoint 5: " + plugMan.LoadTimer(4).ToString();
+            total.text = "Total: " + plugMan.LoadTotalTime().ToString();
         }
     }
 
