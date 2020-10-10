@@ -55,7 +55,7 @@ public class ManagerPlugin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastTime = Time.time;
+        //lastTime = Time.time;
     }
 
     // Update is called once per frame
@@ -70,18 +70,18 @@ public class ManagerPlugin : MonoBehaviour
         //    SaveTimer(checkpointTime);
         //}
 
-        for(int i = 0; i < 10; i++)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha0+i))
-            {
-                Debug.Log(LoadTimer(i));
-            }
-        }
+        //for(int i = 0; i < 10; i++)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Alpha0+i))
+        //    {
+        //        Debug.Log(LoadTimer(i));
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log(LoadTotalTime());
-        }
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    Debug.Log(LoadTotalTime());
+        //}
     }
 
     private void OnDestroy()

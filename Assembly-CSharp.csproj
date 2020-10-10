@@ -57,13 +57,15 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\CheckpointBar.cs" />
     <Compile Include="Assets\_Scripts\HitCheckpnt.cs" />
-    <Compile Include="Assets\_Scripts\DetectionScript.cs" />
     <Compile Include="Assets\_Scripts\ManagerPlugin.cs" />
+    <Compile Include="Assets\_Scripts\LoadScene.cs" />
     <Compile Include="Assets\_Scripts\CameraLooking.cs" />
     <Compile Include="Assets\_Scripts\DeathBlock.cs" />
     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\_Scripts\MovingWall.cs" />
-    <Compile Include="Assets\_Scripts\LoadScene.cs" />
+    <Compile Include="Assets\_Scripts\Victory.cs" />
+    <Compile Include="Assets\_Scripts\GrabTag.cs" />
+    <Compile Include="Assets\_Scripts\ExitGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
