@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private CharacterController p;
-    float jForce = 8.0f;
+    float jForce = 6.0f;
     float speed = 5.0f;
     float gravity = -9.4f;
     private Vector3 pVel;
@@ -38,13 +38,17 @@ public class PlayerMovement : MonoBehaviour
             death = false;
         }
 
-        if (collision.gameObject.tag == "Checkpoint")
-        {
-            respawnPnt = collision.gameObject.transform.position;
-        }
+        
      }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Checkpoint")
+        {
+            respawnPnt = other.gameObject.transform.position;
+        }
+    }
+
     public void Respawn_Player()
     {
         Debug.Log("Respawn!");
@@ -66,10 +70,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 pVel.y = 0.0f;
             }
-            if (_pGrounded) // CHECKS IF IT IS TRUE OR NOT(DOES NOT EFFECT GROUNDED) 
-            {
+            //if (_pGrounded) // CHECKS IF IT IS TRUE OR NOT(DOES NOT EFFECT GROUNDED) 
+            //{
                 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            }
+            //}
 
             if (Input.GetKeyDown("space") && _pGrounded)
             {

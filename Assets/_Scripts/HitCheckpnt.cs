@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class HitCheckpnt : MonoBehaviour
 {
+    private bool triggered = false;
     public Material lit;
+    public ManagerPlugin pMngr;
+    public CheckpointBar checkBar;
+    float lastTime;
 
-    private void OnCollisionEnter(Collision collision)
+    void Start()
     {
-        gameObject.GetComponent<MeshRenderer>().material = lit;
+        lastTime = Time.time;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Player" && !triggered)
+        {
+            triggered = true;
+            checkBar.numCheck = checkBar.numCheck + 1.0f;
+            gameObject.GetComponent<MeshRenderer>().material = lit;
+            float currentTime = Time.time;
+            float checkpointTime = currentTime - lastTime;
+            lastTime = currentTime;
 
+            pMngr.SaveTimer(checkpointTime);
+        }
     }
 }

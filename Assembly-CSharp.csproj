@@ -55,13 +55,15 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\CheckpointBar.cs" />
+    <Compile Include="Assets\_Scripts\HitCheckpnt.cs" />
     <Compile Include="Assets\_Scripts\DetectionScript.cs" />
     <Compile Include="Assets\_Scripts\ManagerPlugin.cs" />
+    <Compile Include="Assets\_Scripts\CameraLooking.cs" />
     <Compile Include="Assets\_Scripts\DeathBlock.cs" />
     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\_Scripts\MovingWall.cs" />
-    <Compile Include="Assets\_Scripts\CameraLooking.cs" />
-    <Compile Include="Assets\_Scripts\HitCheckpnt.cs" />
+    <Compile Include="Assets\_Scripts\LoadScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

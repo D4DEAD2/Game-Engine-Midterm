@@ -25,12 +25,12 @@ public class ManagerPlugin : MonoBehaviour
 
     float lastTime = 0.0f;
     //EVERYTHING with TEST in the name is a TESTing function
-    public void SaveTimeTest(float checkpointTime)
+    public void SaveTimer(float checkpointTime)
     {
         SaveCheckpointTime(checkpointTime);
     }
 
-    public float LoadTimeTest(int index)
+    public float LoadTimer(int index)
     {
         if (index >= GetNumCheckpoints())
         {
@@ -42,7 +42,7 @@ public class ManagerPlugin : MonoBehaviour
         }
     }
 
-    public float LoadTotalTimeTest()
+    public float LoadTotalTime()
     {
         return GetTotalTime();
     }
@@ -61,26 +61,26 @@ public class ManagerPlugin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Y))
-        {
-            float currentTime = Time.time;
-            float checkpointTime = currentTime - lastTime;
-            lastTime = currentTime;
-
-            SaveTimeTest(checkpointTime);
-        }
+        //if(Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    float currentTime = Time.time;
+        //    float checkpointTime = currentTime - lastTime;
+        //    lastTime = currentTime;
+        //
+        //    SaveTimer(checkpointTime);
+        //}
 
         for(int i = 0; i < 10; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha0+i))
             {
-                Debug.Log(LoadTimeTest(i));
+                Debug.Log(LoadTimer(i));
             }
         }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            Debug.Log(LoadTotalTimeTest());
+            Debug.Log(LoadTotalTime());
         }
     }
 

@@ -32,7 +32,7 @@ public class MovingWall : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player hit!");
+            
         }
         else
         {
